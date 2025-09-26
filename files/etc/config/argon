@@ -7,6 +7,6 @@ config global
 #	option blur_dark '10'
 	option transparency '0.3'
 #	option transparency_dark '0.2'
-#	option mode 'normal'
+#	option mode 'dark'
 #	option online_wallpaper 'none'
 
