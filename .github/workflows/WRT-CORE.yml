@@ -189,7 +189,7 @@ jobs:
         if: env.WRT_TEST != 'true'
         run: |
           cd ./wrt/
-          make clean
+
           make -j$(nproc) || make -j1 V=s
 
       - name: Delete Old Cache
@@ -266,4 +266,5 @@ jobs:
 
             内核版本：${{env.WRT_KVER}}
             插件列表：${{env.WRT_LIST}}
+
 
