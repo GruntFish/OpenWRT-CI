@@ -166,14 +166,17 @@ jobs:
 
           $GITHUB_WORKSPACE/Scripts/Packages.sh
           $GITHUB_WORKSPACE/Scripts/Handles.sh
-          ls
-          #smartdns报错
-          sed -i 's|deb3ba1a8ca88fb7294acfb46c5d8881dfe36e816f4746f4760245907ebd0b98|435c182f8362d5eacb0d513f95fbcef6d9af5779cef8feabf60126a10ce93b27|g' ./smartdns/Makefile
 
       - name: Custom Settings
         run: |
           . $GITHUB_WORKSPACE/Scripts/function.sh
           cd ./wrt/
+
+          #smartdns报错
+          sed -i 's|deb3ba1a8ca88fb7294acfb46c5d8881dfe36e816f4746f4760245907ebd0b98|435c182f8362d5eacb0d513f95fbcef6d9af5779cef8feabf60126a10ce93b27|g' ./openwrt-smartdns/Makefile
+
+          #解决nss报错
+          sed -i 's|3ec87f221e8905d4b6b8b3d207b7f7c4666c3bc8db7c1f06d4ae2e78f863b8f4|881cbf75efafe380b5adc91bfb1f68add5e29c9274eb950bb1e815c7a3622807|g' ./feeds/nss_packages/firmware/nss-firmware/Makefile
           
           generate_config && cat .config
           
@@ -192,9 +195,6 @@ jobs:
         if: env.WRT_TEST != 'true'
         run: |
           cd ./wrt/
-          ls
-          #解决nss报错
-          sed -i 's|3ec87f221e8905d4b6b8b3d207b7f7c4666c3bc8db7c1f06d4ae2e78f863b8f4|881cbf75efafe380b5adc91bfb1f68add5e29c9274eb950bb1e815c7a3622807|g' ./feeds/nss_packages/firmware/nss-firmware/Makefile
           
           make -j$(nproc) || make -j1 V=s
 
@@ -272,6 +272,7 @@ jobs:
 
             内核版本：${{env.WRT_KVER}}
             插件列表：${{env.WRT_LIST}}
+
 
 
 
