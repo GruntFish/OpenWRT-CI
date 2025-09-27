@@ -48,7 +48,7 @@ UPDATE_PACKAGE() {
 UPDATE_PACKAGE "argon" "sbwml/luci-theme-argon" "openwrt-24.10"
 UPDATE_PACKAGE "luci-app-adguardhome" "sirpdboy/luci-app-adguardhome" "js"
 UPDATE_PACKAGE "luci-app-lucky" "sirpdboy/luci-app-lucky" "main"
-#UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "js"
+#UPDATE_PACKAGE "adguardhome" "Glunefish/small-package" "main" "pkg"
 
 #UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
 #UPDATE_PACKAGE "nikki" "nikkinikki-org/OpenWrt-nikki" "main"
@@ -128,7 +128,7 @@ sed -i 's/+xray-core//' luci-app-passwall2/Makefile
 
 #删除官方的默认插件
 rm -rf ../feeds/luci/applications/luci-app-{passwall*,mosdns,dockerman,dae*,bypass*}
-rm -rf ../feeds/packages/net/{v2ray-geodata,dae*}
+rm -rf ../feeds/packages/net/{v2ray-geodata,dae*,adguardhome}
 
 #更新golang为最新版
 rm -rf ../feeds/packages/lang/golang
