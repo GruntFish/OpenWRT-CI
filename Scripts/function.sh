@@ -20,7 +20,7 @@ CONFIG_BPF_STREAM_PARSER=y
 # CONFIG_KPROBE_EVENTS is not set
 # CONFIG_BPF_EVENTS is not set
 
-CONFIG_SCHED_CLASS_EXT=y
+# CONFIG_SCHED_CLASS_EXT is not set  # 注释掉，dae 相关
 # CONFIG_PROBE_EVENTS_BTF_ARGS is not set
 # CONFIG_IMX_SCMI_MISC_DRV is not set
 # CONFIG_ARM64_CONTPTE is not set
@@ -34,20 +34,19 @@ EOF
 }
 
 function cat_ebpf_config() {
-
-#ebpf相关
+#ebpf相关 - 注释掉所有 dae 相关的 eBPF 配置
   cat >> $1 <<EOF
-#eBPF
-CONFIG_DEVEL=y
-CONFIG_KERNEL_DEBUG_INFO=y
-CONFIG_KERNEL_DEBUG_INFO_REDUCED=n
-CONFIG_KERNEL_DEBUG_INFO_BTF=y
-CONFIG_KERNEL_CGROUPS=y
-CONFIG_KERNEL_CGROUP_BPF=y
-CONFIG_KERNEL_BPF_EVENTS=y
-CONFIG_BPF_TOOLCHAIN_HOST=y
-CONFIG_KERNEL_XDP_SOCKETS=y
-CONFIG_PACKAGE_kmod-xdp-sockets-diag=y
+#eBPF - 注释掉 dae 相关配置
+# CONFIG_DEVEL=y                    # dae 开发相关
+# CONFIG_KERNEL_DEBUG_INFO=y        # dae 调试信息
+# CONFIG_KERNEL_DEBUG_INFO_REDUCED=n
+# CONFIG_KERNEL_DEBUG_INFO_BTF=y    # dae BTF 支持
+# CONFIG_KERNEL_CGROUPS=y           # dae cgroups
+# CONFIG_KERNEL_CGROUP_BPF=y        # dae cgroup BPF
+# CONFIG_KERNEL_BPF_EVENTS=y        # dae BPF 事件
+# CONFIG_BPF_TOOLCHAIN_HOST=y       # dae 工具链
+# CONFIG_KERNEL_XDP_SOCKETS=y       # dae XDP
+# CONFIG_PACKAGE_kmod-xdp-sockets-diag=y  # dae XDP 诊断
 EOF
 }
 
@@ -150,7 +149,7 @@ function generate_config() {
   #增加ebpf
   cat_ebpf_config $config_file
   enable_skb_recycler $config_file
-  set_kernel_size
+  #set_kernel_size
   #增加内核选项
   cat_kernel_config "target/linux/qualcommax/${target}/config-default"
 }
