@@ -143,4 +143,4 @@ sed -i '/^\[data-page="admin-system-opkg"\] #maincontent>.container {/,/}/ s/fon
 
 #修复daed/Makefile
 #rm -rf luci-app-daed/daed/Makefile && cp -r $GITHUB_WORKSPACE/patches/daed/Makefile #luci-app-daed/daed/
-cat luci-app-daed/daed/Makefile
+#cat luci-app-daed/daed/Makefile
