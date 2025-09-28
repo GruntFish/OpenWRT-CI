@@ -51,7 +51,8 @@ UPDATE_PACKAGE "gecoosac" "lwb1978/openwrt-gecoosac" "main"
 UPDATE_PACKAGE "luci-app-adguardhome" "rufengsuixing/luci-app-adguardhome" "master"
 UPDATE_PACKAGE "luci-app-daed" "QiuSimons/luci-app-daed" "master"
 UPDATE_PACKAGE "luci-app-pushbot" "zzsj0928/luci-app-pushbot" "master"
-
+UPDATE_PACKAGE "openwrt-smartdns" "Glunefish/openwrt-smartdns" "master" "smartdns"
+UPDATE_PACKAGE "luci-app-smartdns" "pymumu/luci-app-smartdns" "master"
 
 #UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
 #UPDATE_PACKAGE "nikki" "nikkinikki-org/OpenWrt-nikki" "main"
@@ -116,7 +117,6 @@ UPDATE_VERSION() {
 #UPDATE_VERSION "软件包名" "测试版，true，可选，默认为否"
 #UPDATE_VERSION "sing-box"
 #UPDATE_VERSION "tailscale"
-
 
 
 #不编译xray-core
