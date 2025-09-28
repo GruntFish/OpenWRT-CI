@@ -171,7 +171,7 @@ jobs:
         run: |
           . $GITHUB_WORKSPACE/Scripts/function.sh
           cd ./wrt/
-
+          ls
           #smartdns报错
           sed -i 's|deb3ba1a8ca88fb7294acfb46c5d8881dfe36e816f4746f4760245907ebd0b98|435c182f8362d5eacb0d513f95fbcef6d9af5779cef8feabf60126a10ce93b27|g' ./openwrt-smartdns/Makefile
 
@@ -272,6 +272,7 @@ jobs:
 
             内核版本：${{env.WRT_KVER}}
             插件列表：${{env.WRT_LIST}}
+
 
 
 
