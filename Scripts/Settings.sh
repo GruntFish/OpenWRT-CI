@@ -1,4 +1,8 @@
 #!/bin/bash
+
+#解决nss报错
+sed -i 's|3ec87f221e8905d4b6b8b3d207b7f7c4666c3bc8db7c1f06d4ae2e78f863b8f4|881cbf75efafe380b5adc91bfb1f68add5e29c9274eb950bb1e815c7a3622807|g' ./feeds/nss_packages/firmware/nss-firmware/Makefile
+		  
 . $(dirname "$(realpath "$0")")/function.sh
 #修改默认主题
 sed -i "s/luci-theme-bootstrap/luci-theme-$WRT_THEME/g" $(find ./feeds/luci/collections/ -type f -name "Makefile")
