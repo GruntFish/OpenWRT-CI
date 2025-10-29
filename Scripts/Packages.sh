@@ -112,11 +112,12 @@ UPDATE_VERSION() {
 #删除官方的默认插件
 rm -rf ../feeds/luci/applications/luci-app-{passwall*,mosdns,dockerman,dae*,bypass*}
 rm -rf ../feeds/packages/net/{v2ray-geodata,dae*}
+rm -rf ../feeds/packages/utils/watchcat
+mv ../GPackages/openwrt-watchcat-plus/watchcat ../feeds/packages/utils/watchcat
 
 #更新golang为最新版
 rm -rf ../feeds/packages/lang/golang
 git clone -b 24.x https://github.com/sbwml/packages_lang_golang ../feeds/packages/lang/golang
-
 
 cp -r $GITHUB_WORKSPACE/package/* ./
 
