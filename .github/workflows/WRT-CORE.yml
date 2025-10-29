@@ -155,14 +155,15 @@ jobs:
         run: |
           cd ./wrt/
 
-          chmod +x $GITHUB_WORKSPACE/Scripts/feeds-diy.sh
-          $GITHUB_WORKSPACE/Scripts/feeds-diy.sh
+          chmod +x $GITHUB_WORKSPACE/Scripts/feeds-diy1.sh
+          $GITHUB_WORKSPACE/Scripts/feeds-diy1.sh
+          ./scripts/feeds update -a
           
       - name: Update Feeds
         run: |
           cd ./wrt/
-
-          ./scripts/feeds update -a
+          chmod +x $GITHUB_WORKSPACE/Scripts/feeds-diy2.sh
+          $GITHUB_WORKSPACE/Scripts/feeds-diy2.sh
           ./scripts/feeds install -a
 
       - name: Custom Packages
@@ -272,6 +273,7 @@ jobs:
 
             内核版本：${{env.WRT_KVER}}
             插件列表：${{env.WRT_LIST}}
+
 
 
 
