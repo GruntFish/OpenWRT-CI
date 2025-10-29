@@ -6,11 +6,11 @@ rm -rf ./feeds/packages/net/{v2ray-geodata,dae*}
 
 echo "替换 watchcat..."
 rm -rf ./feeds/packages/utils/watchcat
-cp -r $GITHUB_WORKSPACE/GPackages/openwrt-watchcat-plus/watchcat ./feeds/packages/utils/watchcat
+mv ./GPackages/openwrt-watchcat-plus/watchcat ./feeds/packages/utils/watchcat
 
 echo "更新 golang..."
 rm -rf ./feeds/packages/lang/golang
-git clone -b 24.x https://github.com/sbwml/packages_lang_golang ./feeds/packages/lang/golang
+git clone -b 25.x https://github.com/sbwml/packages_lang_golang ./feeds/packages/lang/golang
 
 echo "修复 coremark..."
 sed -i 's/mkdir \$(PKG_BUILD_DIR)\/\$(ARCH)/mkdir -p \$(PKG_BUILD_DIR)\/\$(ARCH)/g' ./feeds/packages/utils/coremark/Makefile
