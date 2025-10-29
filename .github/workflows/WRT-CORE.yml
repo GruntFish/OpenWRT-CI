@@ -151,7 +151,7 @@ jobs:
             done
           fi         
                     
-      - name: Run Custom Script
+      - name: feeds Script
         run: |
           cd ./wrt/
 
@@ -273,6 +273,7 @@ jobs:
 
             内核版本：${{env.WRT_KVER}}
             插件列表：${{env.WRT_LIST}}
+
 
 
 
