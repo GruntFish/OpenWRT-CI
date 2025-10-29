@@ -94,6 +94,25 @@ CONFIG_PACKAGE_kmod-nvme=n
 CONFIG_PACKAGE_kmod-ata-core=n
 CONFIG_PACKAGE_kmod-ata-ahci=n
 
+# 内核级 USB 支持 (关键!)
+CONFIG_USB_SUPPORT=n
+CONFIG_USB=n
+CONFIG_USB_DWC2=n
+CONFIG_USB_DWC3=n
+CONFIG_USB_DWC3_OF_SIMPLE=n
+CONFIG_USB_DWC3_QCOM=n
+# PHY 驱动 (导致错误的原因)
+CONFIG_PHY_QCOM_QUSB2=n
+CONFIG_PHY_QCOM_QMP=n
+CONFIG_USB_QCOM_EMU_PHY=n
+# 其他 USB 控制器
+CONFIG_USB_EHCI_HCD=n
+CONFIG_USB_EHCI_HCD_PLATFORM=n
+CONFIG_USB_OHCI_HCD=n
+CONFIG_USB_OHCI_HCD_PLATFORM=n
+CONFIG_USB_XHCI_HCD=n
+CONFIG_USB_XHCI_PLATFORM=n
+
 #组件调整
 CONFIG_PACKAGE_autocore=y
 CONFIG_PACKAGE_automount=y
@@ -125,12 +144,24 @@ CONFIG_PACKAGE_nand-utils=y
 CONFIG_PACKAGE_ca-bundle=y
 CONFIG_PACKAGE_curl=y
 
+#禁用无线相关
+CONFIG_PACKAGE_wpad-basic=n
+CONFIG_PACKAGE_wpad-openssl=n
+CONFIG_PACKAGE_hostapd=n
+CONFIG_PACKAGE_iw=n
+CONFIG_PACKAGE_iwinfo=n
+
 #文件系统
 # CONFIG_PACKAGE_kmod-fs-ext4 is not set
 # CONFIG_PACKAGE_kmod-fs-f2fs is not set
 # CONFIG_PACKAGE_e2fsprogs is not set
 # CONFIG_PACKAGE_f2fsck is not set
 # CONFIG_PACKAGE_mkf2fs is not set
+CONFIG_PACKAGE_kmod-fs-ntfs=n
+CONFIG_PACKAGE_kmod-fs-vfat=n
+CONFIG_PACKAGE_kmod-fs-exfat=n
+CONFIG_PACKAGE_ntfs-3g=n
+CONFIG_PACKAGE_fatattr=n
 
 #其他调整
 CONFIG_PACKAGE_openssh-sftp-server=y
@@ -151,9 +182,11 @@ CONFIG_PACKAGE_bind-dig=y
 # CONFIG_PACKAGE_bind-host is not set
 CONFIG_PACKAGE_bind-nslookup=y
 
-
-
-
+# 内核调试关闭
+CONFIG_DEBUG_INFO=n
+CONFIG_DEBUG_KERNEL=n
+CONFIG_SLUB_DEBUG=n
+CONFIG_PROFILING=n
 
 
 
