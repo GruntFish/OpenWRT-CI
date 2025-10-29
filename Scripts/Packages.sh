@@ -40,7 +40,6 @@ UPDATE_PACKAGE() {
 
 # UPDATE_PACKAGE "包名" "项目地址" "项目分支" "pkg/name，可选，pkg为从大杂烩中单独提取包名插件；name为重命名为包名"
 UPDATE_PACKAGE "argon" "sbwml/luci-theme-argon" "openwrt-24.10"
-UPDATE_PACKAGE "GPackages" "GruntFish/GPackages" "Packages"
 
 
 #UPDATE_PACKAGE "luci-app-daed" "QiuSimons/luci-app-daed" "master"
@@ -98,37 +97,3 @@ UPDATE_VERSION() {
 #UPDATE_VERSION "软件包名" "测试版，true，可选，默认为否"
 #UPDATE_VERSION "sing-box"
 #UPDATE_VERSION "tailscale"
-
-echo "=== 调试信息 ==="
-echo "工作目录: $GITHUB_WORKSPACE"
-echo "当前目录: $(pwd)"
-echo "当前层级：$(ls)"
-echo "=== 调试结束 ==="
-
-
-#不编译xray-core
-#sed -i 's/+xray-core//' luci-app-passwall2/Makefile
-
-#删除官方的默认插件
-rm -rf ../feeds/luci/applications/luci-app-{passwall*,mosdns,dockerman,dae*,bypass*}
-rm -rf ../feeds/packages/net/{v2ray-geodata,dae*}
-rm -rf ../feeds/packages/utils/watchcat
-mv ../GPackages/openwrt-watchcat-plus/watchcat ../feeds/packages/utils/watchcat
-
-#更新golang为最新版
-rm -rf ../feeds/packages/lang/golang
-git clone -b 24.x https://github.com/sbwml/packages_lang_golang ../feeds/packages/lang/golang
-
-cp -r $GITHUB_WORKSPACE/package/* ./
-
-#coremark修复
-sed -i 's/mkdir \$(PKG_BUILD_DIR)\/\$(ARCH)/mkdir -p \$(PKG_BUILD_DIR)\/\$(ARCH)/g' ../feeds/packages/utils/coremark/Makefile
-
-#修改字体
-argon_css_file=$(find ./luci-theme-argon/ -type f -name "cascade.css")
-sed -i "/^.main .main-left .nav li a {/,/^}/ { /font-weight: bolder/d }" $argon_css_file
-sed -i '/^\[data-page="admin-system-opkg"\] #maincontent>.container {/,/}/ s/font-weight: 600;/font-weight: normal;/' $argon_css_file
-
-#修复daed/Makefile
-#rm -rf luci-app-daed/daed/Makefile && cp -r $GITHUB_WORKSPACE/patches/daed/Makefile luci-app-daed/daed/
-#cat luci-app-daed/daed/Makefile
