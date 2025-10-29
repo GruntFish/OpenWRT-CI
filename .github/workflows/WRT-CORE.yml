@@ -149,10 +149,15 @@ jobs:
             find "./wrt/staging_dir" -type d -name "stamp" -not -path "*target*" | while read -r dir; do
                 find "$dir" -type f -exec touch {} +
             done
-          fi            
+          fi         
+                    
+      - name: Run Custom Script
+        run: |
+          cd ./wrt/
 
-
-
+          chmod +x $GITHUB_WORKSPACE/Scripts/feeds-diy.sh
+          $GITHUB_WORKSPACE/Scripts/feeds-diy.sh
+          
       - name: Update Feeds
         run: |
           cd ./wrt/
@@ -267,6 +272,7 @@ jobs:
 
             内核版本：${{env.WRT_KVER}}
             插件列表：${{env.WRT_LIST}}
+
 
 
 
