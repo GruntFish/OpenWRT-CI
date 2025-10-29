@@ -3,10 +3,7 @@
 echo "删除官方插件..."
 rm -rf ./feeds/luci/applications/luci-app-{passwall*,mosdns,dockerman,dae*,bypass*}
 rm -rf ./feeds/packages/net/{v2ray-geodata,dae*}
-
-echo "替换 watchcat..."
-rm -rf ./feeds/packages/utils/watchcat
-mv .feeds/GPackages/openwrt-watchcat-plus/watchcat ./feeds/packages/utils/watchcat
+rm -rf ./feeds/packages/utils/{watchcat}
 
 echo "更新 golang..."
 rm -rf ./feeds/packages/lang/golang
