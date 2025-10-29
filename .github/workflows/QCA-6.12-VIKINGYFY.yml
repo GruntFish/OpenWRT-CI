@@ -34,7 +34,7 @@ jobs:
       matrix:
 #        CONFIG: [IPQ807X-NOWIFI, IPQ807X-WIFI,IPQ60XX-NOWIFI, IPQ60XX-WIFI]
         CONFIG: [IPQ60XX-NOWIFI]
-        SOURCE: [VIKINGYFY/immortalwrt]
+        SOURCE: [GruntFish/immortalwrt-IPQ]
 #        SOURCE: [davidtall/VIKINGYFY-immort]
         BRANCH: [main]
 
