@@ -77,8 +77,7 @@ jobs:
       - name: Remove problematic repositories
         run: |
           # 在清理磁盘空间前先移除有问题的仓库
-          sudo find /etc/apt/sources.list.d/ -name "*azure*" -delete
-          sudo find /etc/apt/sources.list.d/ -name "*google*" -delete
+          sudo find /etc/apt/sources.list.d/ -name "*microsoft*" -delete
 
       - name: Free Disk Space
         uses: endersonmenezes/free-disk-space@v2
@@ -279,6 +278,7 @@ jobs:
 
             内核版本：${{env.WRT_KVER}}
             插件列表：${{env.WRT_LIST}}
+
 
 
 
