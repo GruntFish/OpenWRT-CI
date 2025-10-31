@@ -156,7 +156,9 @@ jobs:
       - name: Update Feeds
         run: |
           cd ./wrt/
-
+          
+          $GITHUB_WORKSPACE/Scripts/feeds-diy1.sh
+          
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
@@ -267,5 +269,6 @@ jobs:
 
             内核版本：${{env.WRT_KVER}}
             插件列表：${{env.WRT_LIST}}
+
 
 
