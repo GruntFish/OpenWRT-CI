@@ -124,6 +124,9 @@ CONFIG_PACKAGE_dmesg=y
 CONFIG_PACKAGE_fdisk=y
 CONFIG_PACKAGE_bc=y
 CONFIG_PACKAGE_nftables=y
+CONFIG_PACKAGE_ca-bundle=y
+CONFIG_PACKAGE_curl=y
+CONFIG_PACKAGE_opkg=y
 # CONFIG_PACKAGE_gdisk is not set
 CONFIG_PACKAGE_htop=y
 CONFIG_PACKAGE_iperf3=y
@@ -133,7 +136,6 @@ CONFIG_PACKAGE_luci-base=y
 CONFIG_PACKAGE_luci-compat=y
 CONFIG_PACKAGE_luci-lib-base=y
 CONFIG_PACKAGE_luci-lib-ipkg=y
-CONFIG_PACKAGE_luci-lib-opkg=y
 CONFIG_PACKAGE_luci-lua-runtime=y
 CONFIG_PACKAGE_luci-proto-bonding=y
 CONFIG_PACKAGE_luci-proto-relay=y
@@ -141,8 +143,7 @@ CONFIG_PACKAGE_mmc-utils=y
 CONFIG_PACKAGE_nand-utils=y
 # CONFIG_PACKAGE_sfdisk is not set
 # CONFIG_PACKAGE_sgdisk is not set
-CONFIG_PACKAGE_ca-bundle=y
-CONFIG_PACKAGE_curl=y
+
 
 #文件系统
 # CONFIG_PACKAGE_kmod-fs-ext4 is not set
@@ -174,6 +175,7 @@ CONFIG_PACKAGE_bash=y
 CONFIG_PACKAGE_bind-dig=y
 # CONFIG_PACKAGE_bind-host is not set
 CONFIG_PACKAGE_bind-nslookup=y
+
 
 
 
