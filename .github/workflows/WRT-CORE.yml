@@ -74,11 +74,6 @@ jobs:
         run: |
           sudo -E apt -yqq install bc
 
-      - name: Remove problematic repositories
-        run: |
-          # 在清理磁盘空间前先移除有问题的仓库
-          sudo find /etc/apt/sources.list.d/ -name "*microsoft*" -delete
-
       - name: Free Disk Space
         uses: endersonmenezes/free-disk-space@v2
         with:
@@ -154,21 +149,15 @@ jobs:
             find "./wrt/staging_dir" -type d -name "stamp" -not -path "*target*" | while read -r dir; do
                 find "$dir" -type f -exec touch {} +
             done
-          fi         
-                    
-      - name: feeds Script
-        run: |
-          cd ./wrt/
+          fi            
 
-          chmod +x $GITHUB_WORKSPACE/Scripts/feeds-diy1.sh
-          $GITHUB_WORKSPACE/Scripts/feeds-diy1.sh
-          ./scripts/feeds update -a
-          
+
+
       - name: Update Feeds
         run: |
           cd ./wrt/
-          chmod +x $GITHUB_WORKSPACE/Scripts/feeds-diy2.sh
-          $GITHUB_WORKSPACE/Scripts/feeds-diy2.sh
+
+          ./scripts/feeds update -a
           ./scripts/feeds install -a
 
       - name: Custom Packages
@@ -278,19 +267,5 @@ jobs:
 
             内核版本：${{env.WRT_KVER}}
             插件列表：${{env.WRT_LIST}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
